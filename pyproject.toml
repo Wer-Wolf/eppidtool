@@ -1,0 +1,61 @@
+[project]
+name = "eppidtool"
+version = "0.0.1"
+description = "Tool for decoding Dell ePPIDs"
+requires-python = ">=3.9"
+keywords = [
+    "eppid"
+]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: System :: Hardware",
+    "Topic :: Utilities",
+    "Typing :: Typed"
+]
+dependencies = [
+    "base36 >= 0.1.1"
+]
+
+[project.optional-dependencies]
+extra = [
+    "pycountry >= 22.3.5"
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[[project.authors]]
+name = "Armin Wolf"
+email = "W_Armin@gmx.de"
+
+[project.urls]
+Repository = "https://github.com/Wer-Wolf/eppidtool"
+Bugtracker = "https://github.com/Wer-Wolf/eppidtool/issues"
+
+[project.scripts]
+eppidtool = "eppidtool.main:main_cli"
+
+[build-system]
+requires = ["setuptools >= 61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.package-data]
+eppidtool = [
+    "py.typed"
+]
+
+[tool.mypy]
+disallow_any_unimported = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
