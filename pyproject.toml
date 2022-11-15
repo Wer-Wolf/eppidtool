@@ -17,12 +17,12 @@ classifiers = [
     "Typing :: Typed"
 ]
 dependencies = [
-    "base36 >= 0.1.1"
+    "base36 ~= 0.1.1"
 ]
 
 [project.optional-dependencies]
 extra = [
-    "pycountry >= 22.3.5"
+    "pycountry ~= 22.3.5"
 ]
 
 [project.readme]
