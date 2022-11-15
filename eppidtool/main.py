@@ -3,6 +3,7 @@
 """CLI entrypoint utilities"""
 
 from argparse import ArgumentParser, Namespace
+from typing import Final
 from . import __doc__ as description, __version__
 from .eppid import SERIAL_LENGTH, SERIAL_EXT_LENGTH, Eppid
 
@@ -17,7 +18,10 @@ __all__ = (
     "main_cli"
 )
 
-ARGUMENT_PARSER = ArgumentParser(description=description)
+ARGUMENT_PARSER: Final = ArgumentParser(
+    prog="eppidtool",
+    description=description
+)
 ARGUMENT_PARSER.add_argument(
     "-v",
     "--version",

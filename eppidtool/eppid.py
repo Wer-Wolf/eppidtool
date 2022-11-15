@@ -4,21 +4,26 @@
 
 from __future__ import annotations
 from dataclasses import dataclass
+from typing import Final, Optional
 import re
 import base36
 
-SERIAL_LENGTH = 20
-SERIAL_EXT_LENGTH = 23
+SERIAL_LENGTH: Final = 20
+SERIAL_EXT_LENGTH: Final = 23
 
-regex = re.compile(r"""([A-Z]{2})       # country-code
-                       .([A-Z\d]{5})    # part number
-                       ([A-Z\d]{5})     # manufacturer id
-                       (\d)             # year (last digit)
-                       ([0-9A-C])       # month (base36)
-                       ([0-9A-V])       # date (base36)
-                       ([A-Z\d]{4})     # sequence number
-                       ([A-Z\d]{3})?    # optional firmware version
-                       """, re.X | re.A)
+REGEX: Final = re.compile(
+    r"""
+    ([A-Z]{2})       # country-code
+    .([A-Z\d]{5})    # part number
+    ([A-Z\d]{5})     # manufacturer id
+    (\d)             # year (last digit)
+    ([1-9A-C])       # month (base36)
+    ([1-9A-V])       # date (base36)
+    ([A-Z\d]{4})     # sequence number
+    ([A-Z\d]{3})?    # optional firmware version
+    """,
+    re.X | re.A
+)
 
 __all__ = (
     "Eppid",
@@ -43,7 +48,7 @@ class Eppid:
 
     sequence: str
 
-    firmware_version: str
+    firmware_version: Optional[str]
 
     __slots__ = (
         "country",
@@ -64,7 +69,7 @@ class Eppid:
         elif len(eppid) < SERIAL_LENGTH:
             raise ValueError("ePPID is too short")
 
-        result = regex.fullmatch(eppid)
+        result = REGEX.fullmatch(eppid)
         if result is None:
             raise ValueError(f"Malformed ePPID '{eppid}'")
 
