@@ -3,14 +3,13 @@
 """CLI entrypoint utilities"""
 
 from argparse import ArgumentParser, Namespace
+from contextlib import suppress
 from typing import Final
 from . import __doc__ as description, __version__
 from .eppid import SERIAL_LENGTH, SERIAL_EXT_LENGTH, Eppid
 
-try:
+with suppress(ImportError):
     from pycountry import countries
-except ImportError:
-    countries = None
 
 __all__ = (
     "ARGUMENT_PARSER",
@@ -54,7 +53,7 @@ def main(args: Namespace) -> int:
 
     try:
         country = countries.get(alpha_2=eppid.country).name
-    except AttributeError:
+    except NameError:
         country = eppid.country
 
     print(f"Country: {country}")
