@@ -17,7 +17,7 @@ classifiers = [
     "Typing :: Typed"
 ]
 dependencies = [
-    "base36 ~= 0.1.1"
+    "base_repr ~= 1.0.6"
 ]
 
 [project.optional-dependencies]

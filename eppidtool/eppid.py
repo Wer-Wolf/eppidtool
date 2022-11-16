@@ -6,7 +6,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, Optional
 import re
-import base36
+from base_repr import repr_to_int
 
 SERIAL_LENGTH: Final = 20
 SERIAL_EXT_LENGTH: Final = 23
@@ -78,8 +78,8 @@ class Eppid:
             part_number=result[2],
             manufacturer=result[3],
             year=int(result[4]),
-            month=base36.loads(result[5]),
-            day=base36.loads(result[6]),
+            month=repr_to_int(result[5], base=36),
+            day=repr_to_int(result[6], base=36),
             sequence=result[7],
             firmware_version=result[8]
         )
