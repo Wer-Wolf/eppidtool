@@ -30,7 +30,7 @@ __all__ = (
 )
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class Eppid:
     """Dell ePPID content"""
 
@@ -49,17 +49,6 @@ class Eppid:
     sequence: str
 
     firmware_version: Optional[str]
-
-    __slots__ = (
-        "country",
-        "part_number",
-        "manufacturer",
-        "year",
-        "month",
-        "day",
-        "sequence",
-        "firmware_version"
-    )
 
     @classmethod
     def from_string(cls, eppid: str) -> Eppid:

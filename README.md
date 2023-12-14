@@ -7,6 +7,10 @@ ePPIDs from the command line.
 
 To use it, execute `eppidtool` or `python3 -m eppidtool` followed by the ePPID.
 
+## Requirements
+
+Python >= 3.10 is required to use this package.
+
 ## Optional Features
 
 If `pycountry` is installed, the country of origin as specified by the ePPID will be displayed in a more user-friendly form
