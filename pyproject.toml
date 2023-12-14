@@ -42,13 +42,11 @@ Bugtracker = "https://github.com/Wer-Wolf/eppidtool/issues"
 eppidtool = "eppidtool.main:main_cli"
 
 [build-system]
-requires = ["setuptools >= 61.0.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.setuptools.package-data]
-eppidtool = [
-    "py.typed"
-]
+[tool.hatch.build.targets.sdist]
+exclude = ["/.github"]
 
 [tool.mypy]
 disallow_any_unimported = true
