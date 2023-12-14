@@ -18,12 +18,12 @@ classifiers = [
     "Typing :: Typed"
 ]
 dependencies = [
-    "base_repr ~= 1.0.6"
+    "base_repr ~= 1.0.7"
 ]
 
 [project.optional-dependencies]
 extra = [
-    "pycountry ~= 22.3.5"
+    "pycountry ~= 23.12.11"
 ]
 
 [project.readme]
@@ -51,7 +51,6 @@ eppidtool = [
 ]
 
 [tool.mypy]
-ignore_missing_imports = true
 disallow_any_unimported = true
 disallow_any_generics = true
 disallow_untyped_defs = true
