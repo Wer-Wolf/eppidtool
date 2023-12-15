@@ -1,3 +1,7 @@
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+![Tests](https://github.com/Wer-Wolf/eppidtool/actions/workflows/Tests.yaml/badge.svg)
+[![codecov](https://codecov.io/github/Wer-Wolf/eppidtool/graph/badge.svg?token=MLRT213ONH)](https://codecov.io/github/Wer-Wolf/eppidtool)
+
 # eppidtool
 
 The `eppidtool` package can be used to parse Dell ePPIDs, which can be found on various components inside Dell computers.
