@@ -49,7 +49,11 @@ def main(args: Namespace) -> int:
         elif len(eppid_str) < SERIAL_EXT_LENGTH:
             eppid_str = eppid_str[:SERIAL_LENGTH]
 
-    eppid = Eppid.from_string(eppid_str)
+    try:
+        eppid = Eppid.from_string(eppid_str)
+    except ValueError as e:
+        print(f"Parsing failed: {e}")
+        return 1
 
     try:
         country = countries.get(alpha_2=eppid.country).name
