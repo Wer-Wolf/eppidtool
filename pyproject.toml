@@ -77,8 +77,8 @@ dependencies = [
 
 [tool.hatch.envs.lint.scripts]
 lint = [
-    "- flake8 src/eppidtool",
-    "- pylint src/eppidtool"
+    "- flake8 eppidtool",
+    "- pylint eppidtool"
 ]
 typecheck = "mypy -p eppidtool"
 release = [
