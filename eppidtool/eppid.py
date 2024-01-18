@@ -55,7 +55,8 @@ class Eppid:
         """Parse ePPID from string"""
         if len(eppid) > SERIAL_EXT_LENGTH:
             raise ValueError("ePPID is too long")
-        elif len(eppid) < SERIAL_LENGTH:
+
+        if len(eppid) < SERIAL_LENGTH:
             raise ValueError("ePPID is too short")
 
         result = REGEX.fullmatch(eppid)
