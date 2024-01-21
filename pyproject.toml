@@ -1,6 +1,6 @@
 [project]
 name = "eppidtool"
-version = "1.2.0"
+version = "1.2.1"
 description = "Tool for decoding Dell ePPIDs"
 requires-python = ">=3.10"
 keywords = [
